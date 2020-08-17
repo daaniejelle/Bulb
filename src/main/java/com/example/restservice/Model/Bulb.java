@@ -6,6 +6,7 @@ public class Bulb extends Tool {
     private String colorName;
     private boolean isDimmable;
     private int intensity;
+    private double time;
 
     public Bulb(int id, boolean on, String cn, String location, int xPosition, int yPosition, boolean isDimmable, int intensity) {
         super(id, location, xPosition, yPosition);

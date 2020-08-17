@@ -29,18 +29,18 @@ public class LightSensor extends Bulb {
     }
 
 
-    public int timeOfTheDay(int time) {
+    public int timeOfTheDay(int id, int hours, int minutes, int intensity) {
 
         if (LocalTime.of(hours, minutes).equals(LocalTime.of(6, 00)))
-            return bulbIntensity(7, 20);
+            return bulbIntensity(9, 20);
         if (LocalTime.of(hours, minutes).isAfter(LocalTime.of(8, 00)))
-            return bulbIntensity(7, 0);
+            return bulbIntensity(9, 0);
         if (LocalTime.of(hours, minutes).equals(LocalTime.of(19, 30)))
-            return bulbIntensity(7, 40);
+            return bulbIntensity(9, 40);
         if (LocalTime.of(hours, minutes).equals(LocalTime.of(21, 00)))
-            return bulbIntensity(7, 80);
+            return bulbIntensity(9, 80);
         if (LocalTime.of(hours, minutes).equals(LocalTime.of(22, 00)))
-            return bulbIntensity(7, 100);
+            return bulbIntensity(9, 100);
 
         else {
             return bulbIntensity(7, 0);

@@ -50,4 +50,20 @@ public class BulbController {
         db.updateBulb(bulb.getId(), bulb.isOn(), bulb.getIntensity());
         return bulb;
     }
+
+    @GetMapping("/setBulbTime")
+    public Bulb timeBulb(int bulbId, int timestamp) {
+        // get the bulb from the database
+        PostgreSQLJDBC db = new PostgreSQLJDBC();
+        Bulb bulb = db.getBulb(bulbId);
+        if (bulb.isOff())
+            bulb.turnOn();
+        else
+            bulb.turnOff();
+
+        // Save the new toggle in the database
+        db.updateBulb(bulb.getId(), bulb.isOn(), timestamp);
+        return bulb;
+    }
+
 }

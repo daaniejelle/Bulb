@@ -1,7 +1,8 @@
 package com.example.restservice.Model;
 
-import com.example.restservice.calculator.SolarEventCalculator;
-import com.example.restservice.dto.Location;
+import com.example.restservice.vanalles.calculator.SolarEventCalculator;
+import com.example.restservice.vanalles.calculator.Zenith;
+import com.example.restservice.vanalles.calculator.dto.cityLocationDate;
 
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -9,16 +10,15 @@ import java.util.TimeZone;
 /**
  * Public interface for getting the various types of sunrise/sunset.
  */
-public class SunriseSunsetCalculator {
+public class SunriseSunsetCalculator extends Tool {
 
-    private Location location;
-
+    private cityLocationDate citylocation;
     private SolarEventCalculator calculator;
 
     /**
      * Constructs a new <code>SunriseSunsetCalculator</code> with the given <code>Location</code>
      * 
-     * @param location
+     * @param citylocation
      *            <code>Location</code> object containing the Latitude/Longitude of the location to compute
      *            the sunrise/sunset for.
      * @param timeZoneIdentifier
@@ -26,23 +26,26 @@ public class SunriseSunsetCalculator {
      *            "America/New_York". Please see the zi directory under the JDK installation for supported
      *            time zones.
      */
-    public SunriseSunsetCalculator(Location location, String timeZoneIdentifier) {
-        this.location = location;
-        this.calculator = new SolarEventCalculator(location, timeZoneIdentifier);
+    public SunriseSunsetCalculator(cityLocationDate citylocation, String timeZoneIdentifier) {
+        super(12, "oudsite", 500,500);
+        this.citylocation = citylocation;
+        this.calculator = new SolarEventCalculator(citylocation, timeZoneIdentifier);
     }
+//        super(12, "oudsite", 500,500);
 
     /**
      * Constructs a new <code>SunriseSunsetCalculator</code> with the given <code>Location</code>
-     * 
-     * @param location
+     *
+     * @param citylocation
      *            <code>Location</code> object containing the Latitude/Longitude of the location to compute
      *            the sunrise/sunset for.
      * @param timeZone
      *            timezone to compute the sunrise/sunset times in.
      */
-    public SunriseSunsetCalculator(Location location, TimeZone timeZone) {
-        this.location = location;
-        this.calculator = new SolarEventCalculator(location, timeZone);
+    public SunriseSunsetCalculator(cityLocationDate citylocation, TimeZone timeZone) {
+        super(12, "oudsite", 500,500);
+        this.citylocation = citylocation;
+        this.calculator = new SolarEventCalculator(citylocation, timeZone);
     }
 
     /**
@@ -238,7 +241,7 @@ public class SunriseSunsetCalculator {
      */
 
     public static Calendar getSunrise(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-        SolarEventCalculator solarEventCalculator = new SolarEventCalculator(new Location(latitude, longitude), timeZone);
+        SolarEventCalculator solarEventCalculator = new SolarEventCalculator(new cityLocationDate(latitude, longitude), timeZone);
         return solarEventCalculator.computeSunriseCalendar(new Zenith(90 - degrees), date);
     }
 
@@ -259,7 +262,7 @@ public class SunriseSunsetCalculator {
      */
 
     public static Calendar getSunset(double latitude, double longitude, TimeZone timeZone, Calendar date, double degrees) {
-        SolarEventCalculator solarEventCalculator = new SolarEventCalculator(new Location(latitude, longitude), timeZone);
+        SolarEventCalculator solarEventCalculator = new SolarEventCalculator(new cityLocationDate(latitude, longitude), timeZone);
         return solarEventCalculator.computeSunsetCalendar(new Zenith(90 - degrees), date);
     }
 
@@ -268,7 +271,7 @@ public class SunriseSunsetCalculator {
      * 
      * @return <code>Location</code> object representing the location of the computed sunrise/sunset.
      */
-    public Location getLocation() {
-        return location;
+    public cityLocationDate getCitylocation() {
+        return citylocation;
     }
 }

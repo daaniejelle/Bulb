@@ -115,6 +115,28 @@ public class PostgreSQLJDBC {
             conn.close();
         } catch (SQLException ex) {
             return;
+        }}
+
+        // Set the status and intensity for given bulbId
+        public void updateBulbTime(int id, int timestamp) {
+            try {
+                Connection conn = connect();
+                String SQL = "UPDATE lightbulbs SET \"on\"=?, TIMESTAMP=? WHERE id = ?;";
+                PreparedStatement preparedStmt = conn.prepareStatement(SQL);
+
+                // inject the parameters into the SQL statement
+                preparedStmt.setInt(3, id);
+                preparedStmt.setInt(2, timestamp);
+
+                // execute the preparedstatement
+                preparedStmt.execute();
+
+                conn.close();
+            } catch (SQLException ex) {
+                return;
+            }
         }
     }
-}
+
+
+
