@@ -1,4 +1,4 @@
-package com.example.restservice.zzzdoa;
+package com.example.restservice.doa;
 
 import com.example.restservice.mapper.AppUserMapper;
 import com.example.restservice.Model.AppUser;

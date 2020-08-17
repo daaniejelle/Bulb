@@ -1,4 +1,4 @@
-package com.example.restservice.zzzUtils;
+package com.example.restservice.Utils;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

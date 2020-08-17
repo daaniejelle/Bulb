@@ -2,7 +2,7 @@ package com.example.restservice.Utils;
 
 import com.example.restservice.Model.AppUser;
 import com.example.restservice.doa.AppRoleDAO;
-import com.example.restservice.zzzdoa.AppUserDAO;
+import com.example.restservice.doa.AppUserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
