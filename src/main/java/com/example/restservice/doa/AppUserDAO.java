@@ -1,34 +1,31 @@
 package com.example.restservice.doa;
 
-import com.example.restservice.mapper.AppUserMapper;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
+
 import com.example.restservice.Model.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.sql.DataSource;
-
 @Repository
 @Transactional
-public class AppUserDAO extends JdbcDaoSupport {
+public class AppUserDAO {
 
     @Autowired
-    public AppUserDAO(DataSource dataSource) {
-        this.setDataSource(dataSource);
-    }
+    private EntityManager entityManager;
 
     public AppUser findUserAccount(String userName) {
-// Select .. from App_User u Where u.User_Name = ?
-        String sql = AppUserMapper.BASE_SQL + " where u.User_Name = ? ";
-
-        Object[] params = new Object[]{userName};
-        AppUserMapper mapper = new AppUserMapper();
         try {
-            AppUser userInfo = this.getJdbcTemplate().queryForObject(sql, params, mapper);
-            return userInfo;
-        } catch (EmptyResultDataAccessException e) {
+            String sql = "Select e from " + AppUser.class.getName() + " e " //
+                    + " Where e.userName = :userName ";
+
+            Query query = entityManager.createQuery(sql, AppUser.class);
+            query.setParameter("userName", userName);
+
+            return (AppUser) query.getSingleResult();
+        } catch (NoResultException e) {
             return null;
         }
     }

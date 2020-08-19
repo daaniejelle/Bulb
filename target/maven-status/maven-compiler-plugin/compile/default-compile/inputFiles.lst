@@ -1,5 +1,4 @@
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\CurrentTimeDateCalendar.java
-C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\config.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\MovementSensor.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\LoginController.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\DateTimeDto.java
@@ -14,15 +13,18 @@ C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\r
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\mapper\AppUserMapper.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Utils\EncrytedPasswordUtils.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\Bulb.java
+C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\HumanityController.java
+C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\Role.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\DAL\PostgreSQLJDBC.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\WebSecurityConfig.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\RestServiceApplication.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\Automate.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\HumanitySensor.java
-C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\UserPersidence.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\Sprinkler.java
+C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\repository\UserRepository.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\doa\AppUserDAO.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\vanalles\calculator\dto\cityLocationDate.java
+C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\User.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Login.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\Model\LightSensor.java
 C:\Users\danie\Desktop\JavaMVC-master\JavaMVC-master\src\main\java\com\example\restservice\BulbController.java

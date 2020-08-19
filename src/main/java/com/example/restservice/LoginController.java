@@ -1,7 +1,9 @@
 package com.example.restservice;
 
+
 import java.security.Principal;
 
+import com.example.restservice.Utils.WebUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
-    @RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
+    @RequestMapping(value = {  "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
         model.addAttribute("title", "Welcome");
         model.addAttribute("message", "This is welcome page!");
@@ -45,10 +47,7 @@ public class LoginController {
     @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
     public String userInfo(Model model, Principal principal) {
 
-        // (1) (en)
         // After user login successfully.
-        // (vi)
-        // Sau khi user login thanh cong se co principal
         String userName = principal.getName();
 
         System.out.println("User Name: " + userName);

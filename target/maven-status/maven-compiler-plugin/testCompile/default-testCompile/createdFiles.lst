@@ -1,4 +1,6 @@
+com\example\restservice\Model\UserTest.class
 com\example\restservice\BulbControllerTest.class
 com\example\restservice\Model\BulbTest.class
 com\example\restservice\Model\LightSensorTest.class
+com\example\restservice\repository\UserRepositoryTest.class
 com\example\restservice\Model\BulbTestPositionIntensity.class
