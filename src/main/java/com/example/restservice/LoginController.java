@@ -17,7 +17,7 @@ public class LoginController {
     @RequestMapping(value = {  "/welcome" }, method = RequestMethod.GET)
     public String welcomePage(Model model) {
         model.addAttribute("title", "Welcome");
-        model.addAttribute("message", "This is welcome page!");
+        model.addAttribute("message", "Hello!");
         return "welcomePage";
     }
 
@@ -34,7 +34,6 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {
-
         return "loginPage";
     }
 
@@ -78,5 +77,6 @@ public class LoginController {
 
         return "403Page";
     }
+
 
 }

@@ -3,7 +3,7 @@
    
 <head>
           
-    <title>Logout</title>
+    <title th:utext="${title}"></title>
     <link rel="stylesheet" th:href="@{/css/Menu.css}"/>
     <link rel="stylesheet" th:href="@{/css/Login.css}"/>
     <link rel="stylesheet" th:href="@{/css/Main.css}"/>
@@ -25,12 +25,26 @@
     </div>
 </div>
 <!-- end menu balk-->
+
       <!-- Include _menu.html -->
       
 <th:block th:include="/_menu"></th:block>
+      
+     
+<p id="header">Admin Page
+
+    Welcome <span th:utext="${#request.userPrincipal.name}"></span> </p>
+<p id="text"> 
+
+
+    <b>This is protected page!</b>  </p>
+       
+      <br/>
+<br/>
        
       
-<div id="loginContainer">Logout Successful!</div>
+<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+       
    
 </body>
     

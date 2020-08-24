@@ -10,7 +10,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "App_User", //
         uniqueConstraints = { //
-                @UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name") })
+                @UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name")})
 public class AppUser {
 
     @Id
@@ -59,4 +59,11 @@ public class AppUser {
         this.enabled = enabled;
     }
 
+    @Override
+    public String toString() {
+        return "AppUser [id=" + userId + ", userName=" + userName + ", encrytedPassword=" + encrytedPassword + ", enabled=" + enabled
+                + "]";
+    }
+
 }
+

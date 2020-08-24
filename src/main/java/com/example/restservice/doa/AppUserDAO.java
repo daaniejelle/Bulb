@@ -29,5 +29,4 @@ public class AppUserDAO {
             return null;
         }
     }
-
 }

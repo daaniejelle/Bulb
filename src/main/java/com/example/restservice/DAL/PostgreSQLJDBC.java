@@ -87,8 +87,9 @@ public class PostgreSQLJDBC {
             int yPosition = rs.getInt("yPosition");
             boolean isDimmable = rs.getBoolean("isDimmable");
             int intensity = rs.getInt("intensity");
+            double timestamp = rs.getDouble("timestamp");
 
-            Bulb bulb = new Bulb(id, on, cn, location, xPosition, yPosition, isDimmable, intensity);
+            Bulb bulb = new Bulb(id, on, cn, location, xPosition, yPosition, isDimmable, intensity, timestamp);
             listOfBulbs.add(bulb);
         }
 

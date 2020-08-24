@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserDetailsServiceLoginImpl implements UserDetailsService {
 
     @Autowired
     private AppUserDAO appUserDAO;
@@ -52,5 +52,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return userDetails;
     }
-
 }

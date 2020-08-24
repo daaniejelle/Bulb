@@ -1,6 +1,5 @@
 package com.example.restservice.doa;
 
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -26,5 +25,4 @@ public class AppRoleDAO {
         query.setParameter("userId", userId);
         return query.getResultList();
     }
-
 }
