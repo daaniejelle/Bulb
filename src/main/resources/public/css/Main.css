@@ -59,11 +59,11 @@ body {
     font: 20px/30px 'DIGITAL', Helvetica;
     background: linear-gradient(90deg, #34495e, #555);
 }
+
 #lightSensor {
     position: relative;
     z-index: 100;
 }
-
 .position {
     position: absolute;
     top: 180px;

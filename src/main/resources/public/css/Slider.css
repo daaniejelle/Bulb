@@ -6,6 +6,14 @@
     border: 2px solid black;
 }
 
+.dimmableBulbSensor {
+    border: 1px solid orange;
+}
+
+.dimmableBulbSensor.selected {
+    border: 2px solid black;
+}
+
 :root {
     --exp:1;
 }
@@ -50,7 +58,8 @@
 }
 
 #sliderContainer {
-    position: absolute;
-    top: 170px;
-    left: 200px;
+    position: relative;
+    z-index: 600;
+    top: 32px;
+    left: 215px;
 }
