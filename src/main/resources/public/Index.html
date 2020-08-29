@@ -6,7 +6,6 @@
     <link href="/css/Main.css" rel="stylesheet" />
     <link href="/css/Menu.css" rel="stylesheet" />
     <link href="/css/Slider.css" rel="stylesheet" />
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="js-source/Main.js"></script>
     <script type="text/javascript" src="js-source/Bulb.js"></script>
@@ -22,25 +21,23 @@
             <li><a href="/"><span class id="Home">Home</span></a></li>
             <li><a href="/dashboard.html"><span class id="Dashboard">Dashboard</span></a></li>
             <li><a href="/login"><span class id="login">Login</span></a></li>
-            <li><a href="/admin"><span class id="admin">Admin</span></a></li>
+            <li><a href="/letsmeet"><span class id="chat">Chat</span></a></li>
             <li><a href="#">
-                <div class="digital-clock">00:00:00</div></a></li>
+                <div class="digital-clock">00:00:00</div>
+            </a></li>
         </ul>
     </div>
 </div>
 <!-- end menu balk-->
 
 <div id="greetContainer">
-        <img src="img/img_avatar2.png" alt="Avatar" class="avatar" align="left">
-            <body onload="greet()">
-            </body>
+    <img src="img/img_avatar2.png" alt="Avatar" class="avatar" align="left">
+    <body onload="greet()">
+    </body>
     <p id="hallo" class="name"></p>
 </div>
 
-
-<!--<div id="draggable" class="ui-widget-content"><img src="img/bulb-off.png">-->
-<!--</div>-->
-
+<div id="lightSensor" class="ui-widget-content"><img class="position" src="img/bulb-off.png"><img class="position" src="img/bulb-on.png"></div>
 <div id="sliderContainer">
     <input type="range" id="slider" min="0" max="100" value="0">
 </div>

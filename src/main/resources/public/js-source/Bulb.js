@@ -66,6 +66,34 @@ function setOpacity(bulb, value) {
     bulb.css("opacity", opacity);
 }
 
+//Lightsensor: light will het brighter every minute, and turned of at 24.00
+let count = 1
+setInterval(function () {
+    var d = new Date();
+    var s = d.getSeconds()
+    var h = d.getHours();
+    let bulb = $(".dimmableBulb.selected");
+
+    let brightness = count / 100
+    setOpacity(bulb, brightness);
+
+    // console.log(s)
+    if ((h > 15 && h < 24) || (h > 6 && h < 15)) {
+        console.log(brightness)
+        $('#lightSensor img:nth-child(2)').css({ 'opacity': brightness })
+        count++
+    }
+    if (h == 24) {
+        $('#lightSensor img:nth-child(2)').css({ 'opacity': 0 })
+        count = 1
+
+        setIntensityStatus(bulbId, brightness, function () {
+
+        });
+    }
+
+}, 1000)
+
 //okCode change intensity
 function setIntensityStatus(bulbId, intensity, okCode) {
     let url = new URL("/bulbIntensity", document.baseURI);
@@ -113,6 +141,8 @@ function positionBulbs() {
                 img.addClass("dimmableBulb");
                 img.on("click", bulbSelectHandler);
                 img.css({ position: 'absolute', height: 60, width: 60, opacity: bulb.intensity + "%" });
+                img.addClass("lightSensor")
+                img.css({ brightness: bulb.intensity });
                 div.append(img);
                 floorPlan.append(div);
             }
@@ -127,7 +157,6 @@ function positionBulbs() {
         });
     });
 }
-
 
 function bulbSelectHandler(event) {
     // remove the selected class from the currently selected bulb
