@@ -63,6 +63,7 @@ body {
     position: relative;
     z-index: 100;
 }
+
 .position {
     position: absolute;
     top: 180px;
