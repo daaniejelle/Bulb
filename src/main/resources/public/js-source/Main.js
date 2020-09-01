@@ -18,3 +18,4 @@ function greet() {
     }
     document.getElementById("hallo").innerHTML = greeting;
 }
+
