@@ -66,7 +66,7 @@ setInterval(function () {
     var date = new Date();
     var second = date.getSeconds()
     var hour = date.getHours()
-    let brightness = count / 100 //counting number 100 starts with 0.01
+    let brightness = count / 100 //counting number 100 starts with 0.01 - 1.00 etc
 
     //LocalStorage
     const storedBrightness = window.localStorage.getItem('opacity');
@@ -77,13 +77,13 @@ setInterval(function () {
         window.localStorage.setItem('opacity', brightness);
     }
 
-    if ((hour > 19 && hour < 23) || (hour > 6 && hour < 16)) {
+    if ((hour > 19 && hour < 23) || (hour > 6 && hour < 9)) {
         console.log(brightness)
         bulb.css({ 'opacity': brightness })
         count++
     }
 
-    if (hour == 23) {
+    if ((hour == 23) || (hour == 9)) {
         bulb.css({ 'opacity': 0 })
         count = 1
     }
