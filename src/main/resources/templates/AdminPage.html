@@ -2,50 +2,84 @@
 <html xmlns:th="http://www.thymeleaf.org">
    
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
           
     <title th:utext="${title}"></title>
     <link rel="stylesheet" th:href="@{/css/Menu.css}"/>
     <link rel="stylesheet" th:href="@{/css/Login.css}"/>
     <link rel="stylesheet" th:href="@{/css/Main.css}"/>
-</head><body>
-<!-- Include _menu.html -->
+</head>
+<body>
 
 <!-- start menu balk-->
 <div id="menu-nav">
     <div id="navigation-bar">
-        <ul id ="nav">
-            <li><a href="/"><span class id="Home">Home</span></a></li>
-            <li><a href="/dashboard.html"><span class id="Dashboard">Dashboard</span></a></li>
-            <li><a href="/login"><span class id="login">Login</span></a></li>
-            <li><a href="/admin"><span class id="admin">Admin</span></a></li>
-            <li><a href="#">
-                <div class="digital-clock">00:00:00</div>
-            </a></li>
+        <ul id="nav">
+            <li><a th:href="@{/}">Home</a></a></li>
+            <li><a th:href="@{/userInfo}">Login</a></li>
+            <li><a th:href="@{/userInfo}">User page</a></li>
+            <li><a th:href="@{/admin}">Admin page</a></li>
+            <li><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></li>
         </ul>
     </div>
 </div>
 <!-- end menu balk-->
 
-      <!-- Include _menu.html -->
-      
-<th:block th:include="/_menu"></th:block>
-      
-     
-<p id="header">Admin Page
+<BR>
+<BR>
+<p id="heading">Welcome <span th:utext="${#request.userPrincipal.name}"></span>!</p>
+<p id="text"> You can only see This page if you have admin rights. </b> <BR>
+    <BR>
+    <BR>
+    This page is still in progress .... </p>
 
-    Welcome <span th:utext="${#request.userPrincipal.name}"></span> </p>
-<p id="text"> 
+<!--<div class="conta
+iner my-5">-->
+<!--    <h2 class="mb-5">Create a new login</h2>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--            <form action="#" th:action="@{/adduser}" th:object="${appUser}" method="post">-->
+<!--                <div class="row">-->
 
+<!--&lt;!&ndash;                    <div class="form-group col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <label for="userId" class="col-form-label">userId</label>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="text" th:field="*{userId}" class="form-control" id="userId" placeholder="userId">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <span th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" class="text-danger"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
 
-    <b>This is protected page!</b>  </p>
+<!--                    <div class="form-group col-md-6">-->
+<!--                        <label for="userName" class="col-form-label">userName</label>-->
+<!--                        <input type="text" th:field="*{userName}" class="form-control" id="userName" placeholder="userName">-->
+<!--                        <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="text-danger"></span>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group col-md-6">-->
+<!--                        <label for="encrytedPassword" class="col-form-label">encrytedPassword</label>-->
+<!--                        <input type="text" th:field="*{encrytedPassword}" class="form-control" id="encrytedPassword" placeholder="encrytedPassword">-->
+<!--                        <span th:if="${#fields.hasErrors('encrytedPassword')}" th:errors="*{encrytedPassword}" class="text-danger"></span>-->
+<!--                    </div>-->
+
+<!--                    <div class="form-group col-md-6">-->
+<!--                        <label for="enabled" class="col-form-label">enabled</label>-->
+<!--                        <input type="text" th:field="*{enabled}" class="form-control" id="enabled" placeholder="enabled">-->
+<!--                        <span th:if="${#fields.hasErrors('enabled')}" th:errors="*{enabled}" class="text-danger"></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-6 mt-5">-->
+<!--                        <input type="submit" class="btn btn-primary" value="Add AppUser">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
        
       <br/>
 <br/>
        
-      
-<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
-       
-   
-</body>
-    
+<!--<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>-->
+</body>    
 </html>

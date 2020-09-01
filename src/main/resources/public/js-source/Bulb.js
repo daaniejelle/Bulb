@@ -32,7 +32,7 @@ function setBulbStatus(bulbId, okCode) {
             });
 }
 
-// change intensity
+// change intensity based on slider
 var refreshIntervalId = null;
 
 function rangeIntensity(event) {
@@ -59,28 +59,36 @@ function rangeIntensity(event) {
     }
 }
 
+// change intensity based on timer
 let count = 1
-setInterval(function() {
+setInterval(function () {
     let bulb = $('.dimmableBulbSensor');
     var date = new Date();
     var second = date.getSeconds()
     var hour = date.getHours()
-    let brightness = count / 20
-    // console.log(s)
+    let brightness = count / 100 //counting number 100 starts with 0.01
 
-    if ((hour > 18 && hour < 24) || (hour > 6 && hour < 14)) {
+    //LocalStorage
+    const storedBrightness = window.localStorage.getItem('opacity');
+    if (Number(storedBrightness) >= 1) {
+        brightness = storedBrightness;
+    }
+    else {
+        window.localStorage.setItem('opacity', brightness);
+    }
+
+    if ((hour > 19 && hour < 23) || (hour > 6 && hour < 16)) {
         console.log(brightness)
         bulb.css({ 'opacity': brightness })
         count++
     }
-    if (hour == 0) {
-       // $('#lightSensor img:nth-child(2)').css({ 'opacity': 0 })
+
+    if (hour == 23) {
         bulb.css({ 'opacity': 0 })
         count = 1
     }
-
-}, 1000)
-
+//running time every xxx
+}, 10000)
 
 function setOpacity(bulb, value) {
     // Opacity is 0.0 - 1;
@@ -134,7 +142,6 @@ function positionBulbs() {
                 // Create the dimmable on light
                 img.attr("src", lightbulbOn)
                 img.addClass("dimmableBulb");
-                img.addClass("lightSensor");
                 img.on("click", bulbSelectHandler);
                 img.css({ position: 'absolute', height: 60, width: 60, opacity: bulb.intensity + "%" });
                 div.append(img);
@@ -143,12 +150,11 @@ function positionBulbs() {
 
             if (bulb.dimmableSensor) {
                 // Create an absolute positioned div
-                // This is the container for the off light and the on light
                 let div = $("<div>");
                 div.css({ top: bulb.yPosition, left: bulb.xPosition, position: 'absolute' });
 
                 // Create the off light, this will be the background for the on light.
-                // When the on light changes opacity, the off light will be shown more or less
+                // When the timer changes opacity, the off light will be shown more or less
                 let imgLightBulbOff = $("<img>")
                 imgLightBulbOff.attr("src", lightbulbOff)
                 imgLightBulbOff.css({ position: 'absolute', height: 60, width: 60 });
@@ -157,7 +163,6 @@ function positionBulbs() {
                 // Create the dimmable on light
                 img.attr("src", lightbulbOn)
                 img.addClass("dimmableBulbSensor");
-                img.on("click", bulbSelectHandler);
                 img.css({ position: 'absolute', height: 60, width: 60, opacity: bulb.intensity + "%" });
                 div.append(img);
                 floorPlan.append(div);
@@ -174,12 +179,9 @@ function positionBulbs() {
     });
 }
 
-
 function bulbSelectHandler(event) {
     // remove the selected class from the currently selected bulb
     $(".dimmableBulb.selected").removeClass("selected");
-    $(".dimmableBulbSensor.selected").removeClass("selected");
-
 
     // Get the lightbulb and make it a jQuery object
     let lightBulb = $(event.target);

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>You are logged in</title>
+    <link rel="stylesheet" th:href="@{/css/Menu.css}"/>
+    <link rel="stylesheet" th:href="@{/css/Main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/Login.css}"/>
+    <link rel="stylesheet" th:href="@{/css/UserTable.css}"/>
+    <script type="text/javascript" th:src="@{/js-source/UserTable.js}"></script>
+    <script type="text/javascript" th:src="@{/js-source/Main.js}"></script>
+</head>
+
+<body>
+
+<!-- start menu balk-->
+<div id="menu-nav">
+    <div id="navigation-bar">
+        <ul id="nav">
+            <li><a th:href="@{/}">Home</a></a></li>
+            <li><a th:href="@{/userInfo}">Login</a></li>
+            <li><a th:href="@{/userInfo}">User page</a></li>
+            <li><a th:href="@{/admin}">Admin page</a></li>
+            <li><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></li>
+        </ul>
+    </div>
+</div>
+<!-- end menu balk-->
+
+<p id="heading"> Hello <span th:utext="${#request.userPrincipal.name}"></span>!</p>
+ 
+<p id="text">This page is only visible when you are logged in. Below you can see a list of all registred users in the database. </p>
+<div class="d-flex justify-content-center">
+    <div class="spinner-border"
+         role="status" id="loading"> <span class="sr-only">Loading...</span> </div>
+</div>
+<!-- table for showing data -->
+<table id="appUsers">
+</table>
+<BR>
+<BR>
+
+<!--start wheater widget-->
+<div id="weather"><a class="weatherwidget-io" href="https://forecast7.com/nl/51d195d99/roermond/" data-label_1=
+        "Actueel weer in" data-label_2="Roermond" data-icons="Climacons Animated" data-days="5" data-theme=
+                             "mountains" >Roermond Weer</a></div>
+<!--end wheater widget-->
+
+<!--<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>-->
+
+</body>
+</html>

@@ -6,8 +6,9 @@ public class LightSensor extends Bulb {
     int hours;
     int minutes;
 
-    public LightSensor(int id, boolean on, String cn, String location, int xPosition, int yPosition, boolean isDimmable, int intensity, int hours, int minutes) {
-        super(id, on, cn, location, xPosition, yPosition, isDimmable, intensity);
+    public LightSensor(int id, boolean on, String cn, String location, int xPosition, int yPosition, boolean isDimmable, int intensity, int hours, int minutes,
+                       boolean isDimmableSensor) {
+        super(id, on, cn, location, xPosition, yPosition, isDimmable, intensity, isDimmableSensor);
         this.hours = hours;
         this.minutes = minutes;
     }
@@ -47,3 +48,5 @@ public class LightSensor extends Bulb {
         }
     }
 }
+
+

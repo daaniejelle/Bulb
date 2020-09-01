@@ -29,4 +29,5 @@ function clockUpdate() {
     var s = addZero(date.getSeconds());
 
     $('.digital-clock').text(h + ':' + m + ':' + s)
+
 }

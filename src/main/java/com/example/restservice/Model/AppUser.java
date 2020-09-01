@@ -11,11 +11,13 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "App_User", //
         uniqueConstraints = { //
                 @UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name")})
+
 public class AppUser {
 
     @Id
     @GeneratedValue
-    @Column(name = "User_Id", nullable = false)
+
+    @Column(name = "User_Id", nullable = false, unique = true, updatable = false)
     private Long userId;
 
     @Column(name = "User_Name", length = 36, nullable = false)

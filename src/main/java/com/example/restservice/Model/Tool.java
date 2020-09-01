@@ -45,4 +45,5 @@ public class Tool {
     public void setyPosition(int yPosition) {
         this.yPosition = yPosition;
     }
+
 }

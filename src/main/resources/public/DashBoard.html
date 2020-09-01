@@ -21,18 +21,19 @@
             <li><a href="/"><span class id="Home">Home</span></a></li>
             <li><a href="/dashboard.html"><span class id="Dashboard">Dashboard</span></a></li>
             <li><a href="/login"><span class id="login">Login</span></a></li>
-            <li><a href="/admin"><span class id="admin">Admin</span></a></li>
+            <li><a href="/letsmeet"><span class id="chat">Chat</span></a></li>
             <li><a href="#">
-                <div class="digital-clock">00:00:00</div></a></li>
+                <div class="digital-clock">00:00:00</div>
+            </a></li>
         </ul>
     </div>
 </div>
 <!-- end menu balk-->
+
 <img src="img/img_avatar2.png" alt="Avatar" class="avatar" align="left">
 <body onload="greet()">
 </body>
 <p id="hallo" class="name"></p>
-
 <p id="tekst">Choose your room to check the actual status:</p>
 <select id="bulbId">
 </select>
@@ -44,50 +45,42 @@
         <th>What do we get?</th>
         <th>Actual Status</th>
     </tr>
-
     <tr>
         <td>Id</td>
         <td id="id"></td>
     </tr>
-
     <tr>
         <td>Location</td>
         <td id="location"></td>
     </tr>
-
     <tr>
         <td>Light (on = true, off = false)</td>
         <td id="on"></td>
     </tr>
-
     <tr>
         <td>Color</td>
         <td id="colorName"></td>
     </tr>
-
     <tr>
         <td>Position X</td>
         <td id="xPosition"></td>
     </tr>
-
     <tr>
         <td>Position Y</td>
         <td id="yPosition"></td>
     </tr>
-
     <tr>
         <td>Dimmer (yes = true / no = false</td>
         <td id="dimmable"></td>
     </tr>
-
     <tr>
         <td>Intensity</td>
         <td id="intensity"></td>
     </tr>
 </table>
+<br>
+<br>
 
-<br>
-<br>
 <!--start wheater widget-->
 <div id="weather"><a class="weatherwidget-io" href="https://forecast7.com/nl/51d195d99/roermond/" data-label_1=
         "Actueel weer in" data-label_2="Roermond" data-icons="Climacons Animated" data-days="5" data-theme=

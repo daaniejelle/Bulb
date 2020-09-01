@@ -1,0 +1,26 @@
+
+#appUsers {
+    width: 80%;
+    font: normal 300 16px "Roboto", sans-serif;
+    background-color: #ecf0f1;
+}
+
+#appUsers th, td {
+    border: solid 1px #DDD;
+    border-collapse: collapse;
+    padding: 4px 6px;
+    text-align: left;
+    color: #34495e;
+}
+
+#appUsers {
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+#loading {
+    font-size: 16px;
+    color: #ecf0f1;
+    text-indent: 15px;
+    margin: 5px 55px 50px;
+}

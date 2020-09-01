@@ -63,3 +63,13 @@
     top: 32px;
     left: 215px;
 }
+
+#lightSensor {
+    position: relative;
+    z-index: 100;
+}
+.position {
+    position: absolute;
+    top: 180px;
+    left: 215px;
+}

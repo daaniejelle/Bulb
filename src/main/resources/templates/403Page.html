@@ -7,31 +7,22 @@
     <link rel="stylesheet" th:href="@{/css/Main.css}"/>
 </head>
 <body>
-<!-- Include _menu.html -->
 
 <!-- start menu balk-->
 <div id="menu-nav">
     <div id="navigation-bar">
-        <ul id ="nav">
-            <li><a href="/"><span class id="Home">Home</span></a></li>
-            <li><a href="/dashboard.html"><span class id="Dashboard">Dashboard</span></a></li>
-            <li><a href="/login"><span class id="login">Login</span></a></li>
-            <li><a href="/admin"><span class id="admin">Admin</span></a></li>
-            <li><a href="#">
-                <div class="digital-clock">00:00:00</div>
-            </a></li>
+        <ul id="nav">
+            <li><a th:href="@{/}">Home</a></a></li>
+            <li><a th:href="@{/userInfo}">Login</a></li>
+            <li><a th:href="@{/userInfo}">User page</a></li>
+            <li><a th:href="@{/admin}">Admin page</a></li>
+            <li><a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a></li>
         </ul>
     </div>
 </div>
 <!-- end menu balk-->
 
-<!-- Include _menu.html -->
-
-<th:block th:include="/_menu"></th:block>
-<div id="welcomeText"> 
-    <h3 th:if="${message != null}" th:utext="${message}" style="color: red;"></h3>
-</div>
-<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
-</div>
+<div id="textSorry" th:if="${message != null}" th:utext="${message}"> </div>
+<!--<div id="tekst"> th:if="${userInfo != null}" th:utext="${userInfo}"></div>-->
 </body>
 </html>

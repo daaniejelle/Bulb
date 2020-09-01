@@ -6,7 +6,8 @@ body {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 60%;
-    margin-left:30px}
+    margin-left:30px
+}
 
 #bulbTable td, #bulbTable th {
     border: 1px solid #ddd;

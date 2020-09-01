@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class LoginController {
 
-    @RequestMapping(value = {  "/welcome" }, method = RequestMethod.GET)
-    public String welcomePage(Model model) {
-        model.addAttribute("title", "Welcome");
-        model.addAttribute("message", "Hello!");
-        return "welcomePage";
-    }
+//    @RequestMapping(value = {"/welcome"}, method = RequestMethod.GET)
+//    public String welcomePage(Model model) {
+//        model.addAttribute("title", "Welcome");
+//        model.addAttribute("message", "Hello!");
+//        return "welcomePage";
+//    }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(Model model, Principal principal) {
@@ -69,14 +69,12 @@ public class LoginController {
 
             model.addAttribute("userInfo", userInfo);
 
-            String message = "Hi " + principal.getName() //
-                    + "<br> You do not have permission to access this page!";
+            String message = "Sorry " + principal.getName() //
+                    + "<br><br><br> You do not have permission to access this page!";
             model.addAttribute("message", message);
-
         }
 
         return "403Page";
     }
-
 
 }

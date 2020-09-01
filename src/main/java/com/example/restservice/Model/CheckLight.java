@@ -45,7 +45,6 @@ public class CheckLight {
         } else {
             return "Off";
         }
-
     }
 }
 

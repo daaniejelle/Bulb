@@ -16,4 +16,5 @@ public class MovementSensor extends Tool {
     public void setMovement(String movement) {
         this.movement = movement;
     }
+
 }

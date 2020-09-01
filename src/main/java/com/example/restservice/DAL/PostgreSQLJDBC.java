@@ -87,57 +87,34 @@ public class PostgreSQLJDBC {
             int yPosition = rs.getInt("yPosition");
             boolean isDimmable = rs.getBoolean("isDimmable");
             int intensity = rs.getInt("intensity");
-            double timestamp = rs.getDouble("timestamp");
+            boolean isDimmableSensor = rs.getBoolean("isDimmableSensor");
 
-            Bulb bulb = new Bulb(id, on, cn, location, xPosition, yPosition, isDimmable, intensity, timestamp);
+            Bulb bulb = new Bulb(id, on, cn, location, xPosition, yPosition, isDimmable, intensity, isDimmableSensor);
             listOfBulbs.add(bulb);
         }
 
         return listOfBulbs;
     }
 
-    public void addBulb(int id, String location, int xPosition, int yPosition, boolean isDimmable) {
-        try {
-            Connection conn = connect();
-            String SQL = "INSERT INTO lightbulbs(id, location,xPosition, xPosition, isDimmable ) VALUES (?,?,?,?,?)";
-            PreparedStatement preparedStmt = conn.prepareStatement(SQL);
-
-            // inject the parameters into the SQL statement
-            preparedStmt.setInt(1, id);
-            preparedStmt.setString(2, location);
-            preparedStmt.setInt(3, xPosition);
-            preparedStmt.setInt(3, yPosition);
-            preparedStmt.setBoolean(3, isDimmable);
+}
 
 
-            // execute the preparedstatement
-            preparedStmt.execute();
-
-            conn.close();
-        } catch (SQLException ex) {
-            return;
-        }}
-
-        // Set the status and intensity for given bulbId
-        public void updateBulbTime(int id, int timestamp) {
-            try {
-                Connection conn = connect();
-                String SQL = "UPDATE lightbulbs SET \"on\"=?, TIMESTAMP=? WHERE id = ?;";
-                PreparedStatement preparedStmt = conn.prepareStatement(SQL);
-
-                // inject the parameters into the SQL statement
-                preparedStmt.setInt(3, id);
-                preparedStmt.setInt(2, timestamp);
-
-                // execute the preparedstatement
-                preparedStmt.execute();
-
-                conn.close();
-            } catch (SQLException ex) {
-                return;
-            }
-        }
-    }
-
+//        // Set the timestamp
+//        public void updateBulbTime(int id, int timestamp) {
+//            try {
+//                Connection conn = connect();
+//                String SQL = "UPDATE lightbulbs SET \"on\"=?, TIMESTAMP=? WHERE id = ?;";
+//                PreparedStatement preparedStmt = conn.prepareStatement(SQL);
+//
+//                // inject the parameters into the SQL statement
+//                preparedStmt.setInt(3, id);
+//                preparedStmt.setInt(2, timestamp);
+//
+//                // execute the preparedstatement
+//                preparedStmt.execute();
+//
+//                conn.close();
+//            } catch (SQLException ex) {
+//                return;
 
 

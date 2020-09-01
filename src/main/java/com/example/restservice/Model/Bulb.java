@@ -6,14 +6,15 @@ public class Bulb extends Tool {
     private String colorName;
     private boolean isDimmable;
     private int intensity;
-    private double time;
+    private boolean isDimmableSensor;
 
-    public Bulb(int id, boolean on, String cn, String location, int xPosition, int yPosition, boolean isDimmable, int intensity) {
+    public Bulb(int id, boolean on, String cn, String location, int xPosition, int yPosition, boolean isDimmable, int intensity, boolean isDimmableSensor) {
         super(id, location, xPosition, yPosition);
         this.on = on;
         colorName = cn;
         this.isDimmable = isDimmable;
         this.intensity = intensity;
+        this.isDimmableSensor = isDimmableSensor;
     }
 
     public static int bulbIntensity(int id, int intensity) {
@@ -60,13 +61,20 @@ public class Bulb extends Tool {
         this.intensity = intensity;
     }
 
+    public boolean isDimmableSensor() {
+        return isDimmableSensor;
+    }
+
+    public void setDimmableSensor(boolean dimmableSensor) {
+        isDimmableSensor = dimmableSensor;
+    }
+
     public String toString() {
         String result;
         if (on) {
             result = "The " + getcolorName() + " light is on.";
         } else {
             result = "The " + getcolorName() + " light is off.";
-
         }
 
         return result;
